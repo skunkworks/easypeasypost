@@ -1,0 +1,564 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A9DE499184507DF006D2124 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE498184507DF006D2124 /* Foundation.framework */; };
+		4A9DE49B184507DF006D2124 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE49A184507DF006D2124 /* CoreGraphics.framework */; };
+		4A9DE49D184507DF006D2124 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE49C184507DF006D2124 /* UIKit.framework */; };
+		4A9DE4A3184507DF006D2124 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4A1184507DF006D2124 /* InfoPlist.strings */; };
+		4A9DE4A5184507DF006D2124 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4A4184507DF006D2124 /* main.m */; };
+		4A9DE4A9184507DF006D2124 /* EPPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4A8184507DF006D2124 /* EPPAppDelegate.m */; };
+		4A9DE4AC184507DF006D2124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4AA184507DF006D2124 /* Main.storyboard */; };
+		4A9DE4AF184507DF006D2124 /* EPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4AE184507DF006D2124 /* EPPViewController.m */; };
+		4A9DE4B1184507DF006D2124 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4B0184507DF006D2124 /* Images.xcassets */; };
+		4A9DE4B8184507DF006D2124 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE4B7184507DF006D2124 /* XCTest.framework */; };
+		4A9DE4B9184507DF006D2124 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE498184507DF006D2124 /* Foundation.framework */; };
+		4A9DE4BA184507DF006D2124 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE49C184507DF006D2124 /* UIKit.framework */; };
+		4A9DE4C2184507DF006D2124 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4C0184507DF006D2124 /* InfoPlist.strings */; };
+		4A9DE4C4184507DF006D2124 /* EasyPeasyPostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */; };
+		4A9DE4CF184508E5006D2124 /* EPPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4CE184508E5006D2124 /* EPPTabBarController.m */; };
+		4A9DE4D218450AFC006D2124 /* EPPAPIKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */; };
+		4A9DE4D618450D69006D2124 /* EPPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D518450D69006D2124 /* EPPEndpoint.m */; };
+		4A9DE4DE18453A1F006D2124 /* EPPSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4DD18453A1F006D2124 /* EPPSettings.m */; };
+		4A9DE4E418454731006D2124 /* EPPAPIKeyCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4E318454731006D2124 /* EPPAPIKeyCheck.m */; };
+		4A9DE4EE18455158006D2124 /* NSDictionary+URLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4ED18455158006D2124 /* NSDictionary+URLString.m */; };
+		4A9DE4F118456FB0006D2124 /* EPPAddressDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4F018456FB0006D2124 /* EPPAddressDetailVC.m */; };
+		4A9DE4F418458A90006D2124 /* EPPAddressesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4F318458A90006D2124 /* EPPAddressesTVC.m */; };
+		4A9DE4FB1845A156006D2124 /* EPPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4FA1845A156006D2124 /* EPPAddress.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A9DE4BB184507DF006D2124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A9DE48D184507DE006D2124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A9DE494184507DE006D2124;
+			remoteInfo = EasyPeasyPost;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4A9DE495184507DF006D2124 /* EasyPeasyPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPeasyPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9DE498184507DF006D2124 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4A9DE49A184507DF006D2124 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4A9DE49C184507DF006D2124 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4A9DE4A0184507DF006D2124 /* EasyPeasyPost-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyPeasyPost-Info.plist"; sourceTree = "<group>"; };
+		4A9DE4A2184507DF006D2124 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4A9DE4A4184507DF006D2124 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A9DE4A6184507DF006D2124 /* EasyPeasyPost-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyPeasyPost-Prefix.pch"; sourceTree = "<group>"; };
+		4A9DE4A7184507DF006D2124 /* EPPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPAppDelegate.h; sourceTree = "<group>"; };
+		4A9DE4A8184507DF006D2124 /* EPPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPAppDelegate.m; sourceTree = "<group>"; };
+		4A9DE4AB184507DF006D2124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A9DE4AD184507DF006D2124 /* EPPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPViewController.h; sourceTree = "<group>"; };
+		4A9DE4AE184507DF006D2124 /* EPPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPViewController.m; sourceTree = "<group>"; };
+		4A9DE4B0184507DF006D2124 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4A9DE4B6184507DF006D2124 /* EasyPeasyPostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyPeasyPostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9DE4B7184507DF006D2124 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4A9DE4BF184507DF006D2124 /* EasyPeasyPostTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyPeasyPostTests-Info.plist"; sourceTree = "<group>"; };
+		4A9DE4C1184507DF006D2124 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyPeasyPostTests.m; sourceTree = "<group>"; };
+		4A9DE4CD184508E5006D2124 /* EPPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPTabBarController.h; sourceTree = "<group>"; };
+		4A9DE4CE184508E5006D2124 /* EPPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPTabBarController.m; sourceTree = "<group>"; };
+		4A9DE4D018450AFC006D2124 /* EPPAPIKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAPIKeyViewController.h; sourceTree = "<group>"; };
+		4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAPIKeyViewController.m; sourceTree = "<group>"; };
+		4A9DE4D418450D69006D2124 /* EPPEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPEndpoint.h; sourceTree = "<group>"; };
+		4A9DE4D518450D69006D2124 /* EPPEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPEndpoint.m; sourceTree = "<group>"; };
+		4A9DE4DC18453A1F006D2124 /* EPPSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPSettings.h; sourceTree = "<group>"; };
+		4A9DE4DD18453A1F006D2124 /* EPPSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPSettings.m; sourceTree = "<group>"; };
+		4A9DE4E218454731006D2124 /* EPPAPIKeyCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAPIKeyCheck.h; sourceTree = "<group>"; };
+		4A9DE4E318454731006D2124 /* EPPAPIKeyCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAPIKeyCheck.m; sourceTree = "<group>"; };
+		4A9DE4EC18455158006D2124 /* NSDictionary+URLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+URLString.h"; sourceTree = "<group>"; };
+		4A9DE4ED18455158006D2124 /* NSDictionary+URLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+URLString.m"; sourceTree = "<group>"; };
+		4A9DE4EF18456FB0006D2124 /* EPPAddressDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAddressDetailVC.h; sourceTree = "<group>"; };
+		4A9DE4F018456FB0006D2124 /* EPPAddressDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAddressDetailVC.m; sourceTree = "<group>"; };
+		4A9DE4F218458A90006D2124 /* EPPAddressesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAddressesTVC.h; sourceTree = "<group>"; };
+		4A9DE4F318458A90006D2124 /* EPPAddressesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAddressesTVC.m; sourceTree = "<group>"; };
+		4A9DE4F91845A156006D2124 /* EPPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAddress.h; sourceTree = "<group>"; };
+		4A9DE4FA1845A156006D2124 /* EPPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAddress.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A9DE492184507DE006D2124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9DE49B184507DF006D2124 /* CoreGraphics.framework in Frameworks */,
+				4A9DE49D184507DF006D2124 /* UIKit.framework in Frameworks */,
+				4A9DE499184507DF006D2124 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A9DE4B3184507DF006D2124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9DE4B8184507DF006D2124 /* XCTest.framework in Frameworks */,
+				4A9DE4BA184507DF006D2124 /* UIKit.framework in Frameworks */,
+				4A9DE4B9184507DF006D2124 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A9DE48C184507DE006D2124 = {
+			isa = PBXGroup;
+			children = (
+				4A9DE49E184507DF006D2124 /* EasyPeasyPost */,
+				4A9DE4BD184507DF006D2124 /* EasyPeasyPostTests */,
+				4A9DE497184507DF006D2124 /* Frameworks */,
+				4A9DE496184507DF006D2124 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A9DE496184507DF006D2124 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE495184507DF006D2124 /* EasyPeasyPost.app */,
+				4A9DE4B6184507DF006D2124 /* EasyPeasyPostTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A9DE497184507DF006D2124 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE498184507DF006D2124 /* Foundation.framework */,
+				4A9DE49A184507DF006D2124 /* CoreGraphics.framework */,
+				4A9DE49C184507DF006D2124 /* UIKit.framework */,
+				4A9DE4B7184507DF006D2124 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A9DE49E184507DF006D2124 /* EasyPeasyPost */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4EB18455145006D2124 /* Categories */,
+				4A9DE4D718450D6E006D2124 /* Models */,
+				4A9DE4D318450B0C006D2124 /* Controllers */,
+				4A9DE4F518459286006D2124 /* Views */,
+				4A9DE4AA184507DF006D2124 /* Main.storyboard */,
+				4A9DE4B0184507DF006D2124 /* Images.xcassets */,
+				4A9DE49F184507DF006D2124 /* Supporting Files */,
+			);
+			path = EasyPeasyPost;
+			sourceTree = "<group>";
+		};
+		4A9DE49F184507DF006D2124 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4A7184507DF006D2124 /* EPPAppDelegate.h */,
+				4A9DE4A8184507DF006D2124 /* EPPAppDelegate.m */,
+				4A9DE4A0184507DF006D2124 /* EasyPeasyPost-Info.plist */,
+				4A9DE4A1184507DF006D2124 /* InfoPlist.strings */,
+				4A9DE4A4184507DF006D2124 /* main.m */,
+				4A9DE4A6184507DF006D2124 /* EasyPeasyPost-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A9DE4BD184507DF006D2124 /* EasyPeasyPostTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */,
+				4A9DE4BE184507DF006D2124 /* Supporting Files */,
+			);
+			path = EasyPeasyPostTests;
+			sourceTree = "<group>";
+		};
+		4A9DE4BE184507DF006D2124 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4BF184507DF006D2124 /* EasyPeasyPostTests-Info.plist */,
+				4A9DE4C0184507DF006D2124 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A9DE4D318450B0C006D2124 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4CD184508E5006D2124 /* EPPTabBarController.h */,
+				4A9DE4CE184508E5006D2124 /* EPPTabBarController.m */,
+				4A9DE4D018450AFC006D2124 /* EPPAPIKeyViewController.h */,
+				4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */,
+				4A9DE4AD184507DF006D2124 /* EPPViewController.h */,
+				4A9DE4AE184507DF006D2124 /* EPPViewController.m */,
+				4A9DE4F218458A90006D2124 /* EPPAddressesTVC.h */,
+				4A9DE4F318458A90006D2124 /* EPPAddressesTVC.m */,
+				4A9DE4EF18456FB0006D2124 /* EPPAddressDetailVC.h */,
+				4A9DE4F018456FB0006D2124 /* EPPAddressDetailVC.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4A9DE4D718450D6E006D2124 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4D418450D69006D2124 /* EPPEndpoint.h */,
+				4A9DE4D518450D69006D2124 /* EPPEndpoint.m */,
+				4A9DE4DC18453A1F006D2124 /* EPPSettings.h */,
+				4A9DE4DD18453A1F006D2124 /* EPPSettings.m */,
+				4A9DE4E218454731006D2124 /* EPPAPIKeyCheck.h */,
+				4A9DE4E318454731006D2124 /* EPPAPIKeyCheck.m */,
+				4A9DE4F91845A156006D2124 /* EPPAddress.h */,
+				4A9DE4FA1845A156006D2124 /* EPPAddress.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4A9DE4EB18455145006D2124 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4A9DE4EC18455158006D2124 /* NSDictionary+URLString.h */,
+				4A9DE4ED18455158006D2124 /* NSDictionary+URLString.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		4A9DE4F518459286006D2124 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A9DE494184507DE006D2124 /* EasyPeasyPost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A9DE4C7184507DF006D2124 /* Build configuration list for PBXNativeTarget "EasyPeasyPost" */;
+			buildPhases = (
+				4A9DE491184507DE006D2124 /* Sources */,
+				4A9DE492184507DE006D2124 /* Frameworks */,
+				4A9DE493184507DE006D2124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyPeasyPost;
+			productName = EasyPeasyPost;
+			productReference = 4A9DE495184507DF006D2124 /* EasyPeasyPost.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A9DE4B5184507DF006D2124 /* EasyPeasyPostTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A9DE4CA184507DF006D2124 /* Build configuration list for PBXNativeTarget "EasyPeasyPostTests" */;
+			buildPhases = (
+				4A9DE4B2184507DF006D2124 /* Sources */,
+				4A9DE4B3184507DF006D2124 /* Frameworks */,
+				4A9DE4B4184507DF006D2124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A9DE4BC184507DF006D2124 /* PBXTargetDependency */,
+			);
+			name = EasyPeasyPostTests;
+			productName = EasyPeasyPostTests;
+			productReference = 4A9DE4B6184507DF006D2124 /* EasyPeasyPostTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A9DE48D184507DE006D2124 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EPP;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Richard Shin";
+				TargetAttributes = {
+					4A9DE4B5184507DF006D2124 = {
+						TestTargetID = 4A9DE494184507DE006D2124;
+					};
+				};
+			};
+			buildConfigurationList = 4A9DE490184507DE006D2124 /* Build configuration list for PBXProject "EasyPeasyPost" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A9DE48C184507DE006D2124;
+			productRefGroup = 4A9DE496184507DF006D2124 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A9DE494184507DE006D2124 /* EasyPeasyPost */,
+				4A9DE4B5184507DF006D2124 /* EasyPeasyPostTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A9DE493184507DE006D2124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9DE4B1184507DF006D2124 /* Images.xcassets in Resources */,
+				4A9DE4A3184507DF006D2124 /* InfoPlist.strings in Resources */,
+				4A9DE4AC184507DF006D2124 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A9DE4B4184507DF006D2124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9DE4C2184507DF006D2124 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A9DE491184507DE006D2124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9DE4AF184507DF006D2124 /* EPPViewController.m in Sources */,
+				4A9DE4EE18455158006D2124 /* NSDictionary+URLString.m in Sources */,
+				4A9DE4E418454731006D2124 /* EPPAPIKeyCheck.m in Sources */,
+				4A9DE4CF184508E5006D2124 /* EPPTabBarController.m in Sources */,
+				4A9DE4D218450AFC006D2124 /* EPPAPIKeyViewController.m in Sources */,
+				4A9DE4DE18453A1F006D2124 /* EPPSettings.m in Sources */,
+				4A9DE4FB1845A156006D2124 /* EPPAddress.m in Sources */,
+				4A9DE4F118456FB0006D2124 /* EPPAddressDetailVC.m in Sources */,
+				4A9DE4F418458A90006D2124 /* EPPAddressesTVC.m in Sources */,
+				4A9DE4A9184507DF006D2124 /* EPPAppDelegate.m in Sources */,
+				4A9DE4D618450D69006D2124 /* EPPEndpoint.m in Sources */,
+				4A9DE4A5184507DF006D2124 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A9DE4B2184507DF006D2124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9DE4C4184507DF006D2124 /* EasyPeasyPostTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A9DE4BC184507DF006D2124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A9DE494184507DE006D2124 /* EasyPeasyPost */;
+			targetProxy = 4A9DE4BB184507DF006D2124 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4A9DE4A1184507DF006D2124 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A9DE4A2184507DF006D2124 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4A9DE4AA184507DF006D2124 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A9DE4AB184507DF006D2124 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4A9DE4C0184507DF006D2124 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A9DE4C1184507DF006D2124 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A9DE4C5184507DF006D2124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4A9DE4C6184507DF006D2124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A9DE4C8184507DF006D2124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyPeasyPost/EasyPeasyPost-Prefix.pch";
+				INFOPLIST_FILE = "EasyPeasyPost/EasyPeasyPost-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4A9DE4C9184507DF006D2124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyPeasyPost/EasyPeasyPost-Prefix.pch";
+				INFOPLIST_FILE = "EasyPeasyPost/EasyPeasyPost-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4A9DE4CB184507DF006D2124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasyPeasyPost.app/EasyPeasyPost";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyPeasyPost/EasyPeasyPost-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EasyPeasyPostTests/EasyPeasyPostTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4A9DE4CC184507DF006D2124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasyPeasyPost.app/EasyPeasyPost";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyPeasyPost/EasyPeasyPost-Prefix.pch";
+				INFOPLIST_FILE = "EasyPeasyPostTests/EasyPeasyPostTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A9DE490184507DE006D2124 /* Build configuration list for PBXProject "EasyPeasyPost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9DE4C5184507DF006D2124 /* Debug */,
+				4A9DE4C6184507DF006D2124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A9DE4C7184507DF006D2124 /* Build configuration list for PBXNativeTarget "EasyPeasyPost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9DE4C8184507DF006D2124 /* Debug */,
+				4A9DE4C9184507DF006D2124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A9DE4CA184507DF006D2124 /* Build configuration list for PBXNativeTarget "EasyPeasyPostTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9DE4CB184507DF006D2124 /* Debug */,
+				4A9DE4CC184507DF006D2124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A9DE48D184507DE006D2124 /* Project object */;
+}
