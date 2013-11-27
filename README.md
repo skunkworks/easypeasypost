@@ -1,4 +1,4 @@
 easypeasypost
 =============
 
-A little bit of monkeying around with the EasyPost API
+An iOS app to monkey around a little bit with EasyPost's RESTful API — Edit
