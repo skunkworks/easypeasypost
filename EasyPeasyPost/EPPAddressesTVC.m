@@ -94,7 +94,6 @@
 {
     EPPAddressDetailVC *vc = (EPPAddressDetailVC *)sender.sourceViewController;
     EPPAddress *address = vc.address;
-    
     [self.addresses addObject:address];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.addresses count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
@@ -105,12 +104,10 @@
 {
     EPPAddress *oldAddress = self.address;
     NSUInteger idx = [self.addresses indexOfObject:oldAddress];
-    
     EPPAddressDetailVC *vc = (EPPAddressDetailVC *)sender.sourceViewController;
     EPPAddress *newAddress = vc.address;
     
     [self.addresses replaceObjectAtIndex:idx withObject:newAddress];
-    
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx
                                                  inSection:0];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath]

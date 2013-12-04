@@ -11,6 +11,10 @@
 
 @interface EPPAddressDetailVC : UITableViewController
 
+// Setting this property before this VC is loaded will load the fields
+// with the address data. After fields have been saved/updated, this VC
+// initiates an unwind segue that gives the receiver the chance to grab
+// the updated address through this property.
 @property (nonatomic, strong) EPPAddress *address;
 
 @end

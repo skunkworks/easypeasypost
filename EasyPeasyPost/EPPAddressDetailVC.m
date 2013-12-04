@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) NSArray *fields;
 @property (nonatomic, strong) EPPAddress *verifiedAddress;
+@property (nonatomic) BOOL edited;
 
 @end
 
@@ -110,16 +111,46 @@
 
 - (void)updateAddressWithFields:(EPPAddress *)address
 {
-    self.address.name = self.nameField.text;
-    self.address.company = self.companyField.text;
-    self.address.email = self.emailField.text;
-    self.address.phone = self.phoneField.text;
-    self.address.street1 = self.street1Field.text;
-    self.address.street2 = self.street2Field.text;
-    self.address.city = self.cityField.text;
-    self.address.state = self.stateField.text;
-    self.address.zip = self.zipField.text;
-    self.address.country = self.countryField.text;
+    if (![self.address.name isEqualToString:self.nameField.text]) {
+        self.address.name = self.nameField.text;
+        self.edited = YES;
+    }
+    if (![self.address.company isEqualToString:self.companyField.text]) {
+        self.address.company = self.companyField.text;
+        self.edited = YES;
+    }
+    if (![self.address.email isEqualToString:self.emailField.text]) {
+        self.address.email = self.emailField.text;
+        self.edited = YES;
+    }
+    if (![self.address.phone isEqualToString:self.phoneField.text]) {
+        self.address.phone = self.phoneField.text;
+        self.edited = YES;
+    }
+    if (![self.address.street1 isEqualToString:self.street1Field.text]) {
+        self.address.street1 = self.street1Field.text;
+        self.edited = YES;
+    }
+    if (![self.address.street2 isEqualToString:self.street2Field.text]) {
+        self.address.street2 = self.street2Field.text;
+        self.edited = YES;
+    }
+    if (![self.address.city isEqualToString:self.cityField.text]) {
+        self.address.city = self.cityField.text;
+        self.edited = YES;
+    }
+    if (![self.address.state isEqualToString:self.stateField.text]) {
+        self.address.state = self.stateField.text;
+        self.edited = YES;
+    }
+    if (![self.address.zip isEqualToString:self.zipField.text]) {
+        self.address.zip = self.zipField.text;
+        self.edited = YES;
+    }
+    if (![self.address.country isEqualToString:self.countryField.text]) {
+        self.address.country = self.countryField.text;
+        self.edited = YES;
+    }
 }
 
 - (IBAction)save:(id)sender
@@ -136,7 +167,7 @@
             [alertView show];
         } else {
             // Don't have to update address -- saveOnCompletion: modifies the object directly
-            [self performSegueWithIdentifier:@"Save new address" sender:self.address];
+            [self performSegueWithIdentifier:@"Save new address" sender:nil];
         }
     }];
 }
@@ -145,19 +176,25 @@
 {
     [self updateAddressWithFields:self.address];
     
-    [self.address saveOnCompletion:^(NSString *errorMessage) {
-        if (errorMessage) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to update address"
-                                                                message:errorMessage
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-        } else {
-            // Perform unwind segue
-            [self performSegueWithIdentifier:@"Update existing address" sender:self.address];
-        }
-    }];
+    if (!self.edited) {
+        // If this address hasn't been edited and the user chooses to update it despite there being
+        // no changes to any fields, just pop the view controller without POSTing another address to
+        // the server. If any changes have been made to the address, we need to create a new address.
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self.address saveOnCompletion:^(NSString *errorMessage) {
+            if (errorMessage) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to update address"
+                                                                    message:errorMessage
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                [alertView show];
+            } else {
+                [self performSegueWithIdentifier:@"Update existing address" sender:nil];
+            }
+        }];
+    }
 }
 
 - (IBAction)verify:(id)sender
@@ -208,6 +245,5 @@
 {
     
 }
-
 
 @end
