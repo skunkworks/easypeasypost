@@ -10,13 +10,13 @@
 #import "EPPSettings.h"
 #import "NSDictionary+URLString.h"
 
-@interface EPPEndpoint () <NSURLSessionTaskDelegate>
+@interface EPPEndpoint () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) NSURL *endpointURL;
 @property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, strong) void(^onCompletion)(NSHTTPURLResponse *response, NSError *error);
 @property (nonatomic, strong) EPPSettings *settings;
+@property (nonatomic, copy) void(^completionHandler)(NSData *data, NSHTTPURLResponse *response, NSError *error);
 
 @end
 
@@ -36,31 +36,41 @@
 }
 
 - (void)performGetRequestOnResourceURL:(NSString *)resourceURL
-                          onCompletion:(void(^)(NSHTTPURLResponse *response, NSError *error))completionHandler
+                          onCompletion:(void(^)(NSData *data, NSHTTPURLResponse *response, NSError *error))completionHandler
 {
-    self.onCompletion = completionHandler;
+    self.completionHandler = completionHandler;
+    
     NSURL *url = [self.endpointURL URLByAppendingPathComponent:resourceURL];
     NSURLRequest *request = [self requestForURL:url];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                                                           delegate:self
                                                      delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        completionHandler(data, (NSHTTPURLResponse *)response, error);
+    }];
+    
     [dataTask resume];
 }
 
 - (void)performPostRequestOnResourceURL:(NSString *)resourceURL
                          withParameters:(NSString *)parameterString
-                           onCompletion:(void(^)(NSHTTPURLResponse *response, NSError *error))completionHandler
+                           onCompletion:(void(^)(NSData *data, NSHTTPURLResponse *response, NSError *error))completionHandler
 {
-    self.onCompletion = completionHandler;
+    self.completionHandler = completionHandler;
+    
     NSURL *url = [self.endpointURL URLByAppendingPathComponent:resourceURL];
-    
     NSURLRequest *request = [self postRequestForURL:url withData:parameterString];
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                                                           delegate:self
                                                      delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        completionHandler(data, (NSHTTPURLResponse *)response, error);
+    }];
+    
     [dataTask resume];
 }
 
@@ -98,7 +108,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
         newRequest:(NSURLRequest *)request
  completionHandler:(void (^)(NSURLRequest *))completionHandler
 {
-    NSLog(@"Redirect response requested!");
+    NSLog(@"Received redirect");
     // Refuse the redirect, which will return the body of the redirect response
     completionHandler(NULL);
 }
@@ -107,9 +117,11 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
-    self.onCompletion((NSHTTPURLResponse *)task.response, error);
+    // We only call the completion handler callback in cases of redirects and client-side errors.
+    // The actual data response return is handled by the NSURLSessionDataTask's completion handler.
+    if (error) {
+        self.completionHandler(nil, (NSHTTPURLResponse *)task.response, error);
+    }
 }
-
-
 
 @end

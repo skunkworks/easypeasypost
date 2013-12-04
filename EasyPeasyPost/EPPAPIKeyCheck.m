@@ -15,7 +15,7 @@
 {
     EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
     [endpoint performGetRequestOnResourceURL:@"/shipments"
-                                onCompletion:^(NSHTTPURLResponse *response, NSError *error)
+                                onCompletion:^(NSData *data, NSHTTPURLResponse *response, NSError *error)
      {
          if (error) {
              completionHandler(NO, [NSString stringWithFormat:@"%@", error]);

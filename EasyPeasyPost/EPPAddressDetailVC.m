@@ -77,7 +77,10 @@
 
 - (IBAction)save:(UIBarButtonItem *)sender
 {
-    self.address = [[EPPAddress alloc] init];
+    // We use this VC for both new and existing addresses, which is why we do this check
+    if (!self.address) {
+        self.address = [[EPPAddress alloc] init];
+    }
     self.address.name = self.nameField.text;
     self.address.company = self.companyField.text;
     self.address.email = self.emailField.text;
@@ -98,12 +101,12 @@
                                                       otherButtonTitles:nil];
             [alertView show];
         } else {
-            // Otherwise, save new address fields
+            // Save updated address (now has ID and datetimes)
+            self.address = address;
+            
             // Perform segue
-            // [self performSegueWithIdentifier:@"Save new address" sender:self.address];
+            [self performSegueWithIdentifier:@"Save new address" sender:self.address];
         }
-        // Remove this, uncomment above
-        [self performSegueWithIdentifier:@"Save new address" sender:self.address];
     }];
 }
 

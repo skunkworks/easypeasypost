@@ -11,9 +11,9 @@
 @interface EPPEndpoint : NSObject
 
 - (void)performGetRequestOnResourceURL:(NSString *)resourceURL
-                          onCompletion:(void(^)(NSHTTPURLResponse *response, NSError *error))completionHandler;
+                          onCompletion:(void(^)(NSData *data, NSHTTPURLResponse *response, NSError *error))completionHandler;
 
 - (void)performPostRequestOnResourceURL:(NSString *)resourceURL
                          withParameters:(NSString *)parameterString
-                           onCompletion:(void(^)(NSHTTPURLResponse *response, NSError *error))completionHandler;
+                           onCompletion:(void(^)(NSData *data, NSHTTPURLResponse *response, NSError *error))completionHandler;
 @end

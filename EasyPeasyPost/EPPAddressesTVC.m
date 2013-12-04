@@ -64,8 +64,10 @@
     
     // Configure the cell...
     EPPAddress *address = self.addresses[indexPath.row];
-    cell.textLabel.text = address.name ? address.name : address.company;
-    cell.detailTextLabel.text = [address description];
+    NSString *title = [NSString stringWithFormat:@"%@ (%@)", address.name ? address.name : address.company, address.id];
+    NSString *subtitle = [address description];
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = subtitle;
     
     return cell;
 }
@@ -120,10 +122,10 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"Edit address"]) {
         EPPAddressDetailVC *vc = (EPPAddressDetailVC *)segue.destinationViewController;
-        vc.title = @"Edit address";
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         EPPAddress *address = self.addresses[indexPath.row];
         vc.address = address;
+        vc.title = address.id;
     }
 }
 

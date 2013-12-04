@@ -68,21 +68,47 @@
     
     [endpoint performPostRequestOnResourceURL:@"/addresses"
                                withParameters:addressParameterString
-                                 onCompletion:^(NSHTTPURLResponse *response, NSError *error)
+                                 onCompletion:^(NSData *data, NSHTTPURLResponse *response, NSError *error)
      {
          if (error) {
              completionHandler(NO, [NSString stringWithFormat:@"%@", error]);
          } else {
-             if (response.statusCode == 200) {
-                 // TODO: parse JSON response, save to self
-                 // Don't forget about saving the very important
-                 // id, createdAt, and updatedAt readonly fields
+             if (response.statusCode == 200 ||
+                 response.statusCode == 201 ||
+                 response.statusCode == 202) {
+                 NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                            options:0
+                                                                              error:nil];
+                 _id = dictionary[@"id"];
+                 _createdAt = [self dateTimeFromRFC3339DateTimeString:dictionary[@"created_at"]];
+                 _updatedAt = [self dateTimeFromRFC3339DateTimeString:dictionary[@"updated_at"]];
+
                  completionHandler(self, nil);
              } else {
                  completionHandler(nil, @"Failed to save address. Is your API key valid?");
+                 NSLog(@"Error: %@", error);
              }
          }
      }];
+}
+
+- (NSDate *)dateTimeFromRFC3339DateTimeString:(NSString *)rfc3339DateTimeString {
+    /*
+     Returns a user-visible date time string that corresponds to the specified
+     RFC 3339 date time string. Note that this does not handle all possible
+     RFC 3339 date time strings, just one of the most common styles.
+     */
+    
+    NSDateFormatter *rfc3339DateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    
+    [rfc3339DateFormatter setLocale:enUSPOSIXLocale];
+    [rfc3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    [rfc3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
+    // Convert the RFC 3339 date time string to an NSDate.
+    NSDate *date = [rfc3339DateFormatter dateFromString:rfc3339DateTimeString];
+    return date;
 }
 
 @end
