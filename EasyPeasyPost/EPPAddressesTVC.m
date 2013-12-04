@@ -12,6 +12,8 @@
 @interface EPPAddressesTVC ()
 
 @property (nonatomic, strong) NSMutableArray *addresses;
+// Keeps track of the address object being edited
+@property (nonatomic, strong) EPPAddress *address;
 
 @end
 
@@ -64,7 +66,7 @@
     
     // Configure the cell...
     EPPAddress *address = self.addresses[indexPath.row];
-    NSString *title = [NSString stringWithFormat:@"%@ (%@)", address.name ? address.name : address.company, address.id];
+    NSString *title = [NSString stringWithFormat:@"%@ - %@", address.name ? address.name : address.company, address.id];
     NSString *subtitle = [address description];
     cell.textLabel.text = title;
     cell.detailTextLabel.text = subtitle;
@@ -83,17 +85,35 @@
     if ([segue.identifier isEqualToString:@"Edit address"]) {
         EPPAddressDetailVC *vc = (EPPAddressDetailVC *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        EPPAddress *address = self.addresses[indexPath.row];
-        vc.address = address;
+        self.address = self.addresses[indexPath.row];
+        vc.address = self.address;
     }
 }
 
-- (IBAction)unwindFromDetailVC:(UIStoryboardSegue *)sender
+- (IBAction)saveNewAddress:(UIStoryboardSegue *)sender
 {
-    // Successfully added new address
-    [self.addresses addObject:self.address];
+    EPPAddressDetailVC *vc = (EPPAddressDetailVC *)sender.sourceViewController;
+    EPPAddress *address = vc.address;
+    
+    [self.addresses addObject:address];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.addresses count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (IBAction)updateAddress:(UIStoryboardSegue *)sender
+{
+    EPPAddress *oldAddress = self.address;
+    NSUInteger idx = [self.addresses indexOfObject:oldAddress];
+    
+    EPPAddressDetailVC *vc = (EPPAddressDetailVC *)sender.sourceViewController;
+    EPPAddress *newAddress = vc.address;
+    
+    [self.addresses replaceObjectAtIndex:idx withObject:newAddress];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx
+                                                 inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationAutomatic];
 }
  

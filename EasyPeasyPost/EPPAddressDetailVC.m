@@ -8,7 +8,7 @@
 
 #import "EPPAddressDetailVC.h"
 
-@interface EPPAddressDetailVC () <UITextFieldDelegate>
+@interface EPPAddressDetailVC () <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
@@ -20,11 +20,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *stateField;
 @property (weak, nonatomic) IBOutlet UITextField *zipField;
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
-@property (weak, nonatomic) IBOutlet UILabel *idLabel;
-@property (weak, nonatomic) IBOutlet UILabel *createdOnLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
+@property (weak, nonatomic) IBOutlet UITextField *idField;
+@property (weak, nonatomic) IBOutlet UITextField *createdAtField;
+@property (weak, nonatomic) IBOutlet UITextField *updatedAtField;
 
 @property (nonatomic, strong) NSArray *fields;
+@property (nonatomic, strong) EPPAddress *verifiedAddress;
 
 @end
 
@@ -60,8 +61,11 @@
     [super touchesBegan:touches withEvent:event];
 }
 
+#pragma mark - UITextField delegate methods
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    // Have the return key move to the next field. When there are no more fields, dismiss keyboard.
     int nextIndex = [self.fields indexOfObject:textField]+1;
     if ([self.fields count] > nextIndex) {
         [self.fields[nextIndex] becomeFirstResponder];
@@ -70,9 +74,20 @@
     return NO;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    // Disallow editing of the readonly fields
+    if (textField == self.idField ||
+        textField == self.createdAtField ||
+        textField == self.updatedAtField) {
+        return NO;
+    }
+    return YES;
+}
+
 - (void)updateFieldsWithAddress:(EPPAddress *)address
 {
-    self.idLabel.text = [NSString stringWithFormat:@"ID: %@", address.id];
+    self.idField.text = address.id;
     self.nameField.text = address.name;
     self.companyField.text = address.company;
     self.emailField.text = address.email;
@@ -84,11 +99,13 @@
     self.zipField.text = address.zip;
     self.countryField.text = address.country;
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    self.createdOnLabel.text = [NSString stringWithFormat:@"Created on: %@", [formatter stringFromDate:address.createdAt]];
-    self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last updated: %@", [formatter stringFromDate:address.updatedAt]];
+    self.createdAtField.text = [NSDateFormatter localizedStringFromDate:address.createdAt
+                                                              dateStyle:NSDateFormatterMediumStyle
+                                                              timeStyle:NSDateFormatterShortStyle];
+    self.updatedAtField.text = [NSDateFormatter localizedStringFromDate:address.updatedAt
+                                                              dateStyle:NSDateFormatterMediumStyle
+                                                              timeStyle:NSDateFormatterShortStyle];
+
 }
 
 - (void)updateAddressWithFields:(EPPAddress *)address
@@ -109,7 +126,7 @@
 {
     [self updateAddressWithFields:self.address];
     
-    [self.address saveOnCompletion:^(EPPAddress *address, NSString *errorMessage) {
+    [self.address saveOnCompletion:^(NSString *errorMessage) {
         if (errorMessage) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to save address"
                                                                 message:errorMessage
@@ -118,11 +135,27 @@
                                                       otherButtonTitles:nil];
             [alertView show];
         } else {
-            // Save updated address (now has ID and datetimes)
-            self.address = address;
-            
-            // Perform unwind segue
+            // Don't have to update address -- saveOnCompletion: modifies the object directly
             [self performSegueWithIdentifier:@"Save new address" sender:self.address];
+        }
+    }];
+}
+
+- (IBAction)update:(id)sender
+{
+    [self updateAddressWithFields:self.address];
+    
+    [self.address saveOnCompletion:^(NSString *errorMessage) {
+        if (errorMessage) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to update address"
+                                                                message:errorMessage
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        } else {
+            // Perform unwind segue
+            [self performSegueWithIdentifier:@"Update existing address" sender:self.address];
         }
     }];
 }
@@ -132,33 +165,48 @@
     [self updateAddressWithFields:self.address];
     
     [self.address verifyOnCompletion:^(EPPAddress *address, NSString *errorMessage) {
+        UIAlertView *alertView;
         if (address) {
-            [self updateFieldsWithAddress:address];
             if (errorMessage) {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"More information needed"
-                                                                    message:errorMessage
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil];
-                [alertView show];
+                alertView = [[UIAlertView alloc] initWithTitle:@"Error verifying address"
+                                                       message:errorMessage
+                                                      delegate:nil
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+            } else {
+                self.verifiedAddress = address;
+                alertView = [[UIAlertView alloc] initWithTitle:@"Overwrite address fields with verified address?"
+                                                       message:[address description]
+                                                      delegate:self
+                                             cancelButtonTitle:@"No"
+                                             otherButtonTitles:@"Yes", nil];
             }
         }
         else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error verifying address"
-                                                                message:errorMessage
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-            [alertView show];
+            alertView = [[UIAlertView alloc] initWithTitle:@"Error verifying address"
+                                                   message:errorMessage
+                                                  delegate:nil
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles:nil];
         }
+        [alertView show];
     }];
 }
 
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
+        self.address = self.verifiedAddress;
+        [self updateFieldsWithAddress:self.verifiedAddress];
+    }
+}
+
+#pragma mark - Segue methods
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController respondsToSelector:@selector(setAddress:)]) {
-        [segue.destinationViewController performSelector:@selector(setAddress:) withObject:self.address];
-    }
+    
 }
 
 

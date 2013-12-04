@@ -11,6 +11,4 @@
 
 @interface EPPAddressesTVC : UITableViewController
 
-@property (nonatomic, strong) EPPAddress *address;
-
 @end

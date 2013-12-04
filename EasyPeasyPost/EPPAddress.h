@@ -38,7 +38,8 @@
 // Returns NSDictionary representation of address
 - (NSDictionary *)dictionary;
 
-- (void)saveOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler;
+- (void)saveOnCompletion:(void(^)(NSString *errorMessage))completionHandler;
+// Calls completion handler with a new address instance, leaves this instance unaltered
 - (void)verifyOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler;
 
 @end

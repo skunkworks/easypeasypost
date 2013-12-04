@@ -30,6 +30,9 @@
     if (self.zip && self.zip.length) {
         [description appendString:[NSString stringWithFormat:@" %@", self.zip]];
     }
+    if (self.country && self.country.length) {
+        [description appendString:[NSString stringWithFormat:@" %@", self.country]];
+    }
     return [description copy];
 }
 
@@ -99,7 +102,7 @@
     self.updatedAt = [self dateTimeFromRFC3339DateTimeString:dictionary[UPDATED_AT]];
 }
 
-- (void)saveOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler
+- (void)saveOnCompletion:(void(^)(NSString *errorMessage))completionHandler
 {
     NSString *addressParameterString = [[self dictionary] urlEncodedString];
     EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
@@ -110,7 +113,7 @@
      {
          if (error) {
              NSString *errorMessage = [NSString stringWithFormat:@"Error: %@", error];
-             completionHandler(nil, errorMessage);
+             completionHandler(errorMessage);
          } else {
              if (response.statusCode == 200 ||
                  response.statusCode == 201 ||
@@ -120,16 +123,17 @@
                                                                               error:nil];
                  [self updateFromDictionary:dictionary];
 
-                 completionHandler(self, nil);
+                 completionHandler(nil);
              } else {
                  NSString *errorMessage = @"Error: failed to save address. Is your API key valid?";
-                 completionHandler(nil, errorMessage);
+                 completionHandler(errorMessage);
                  NSLog(@"%@", errorMessage);
              }
          }
      }];
 }
 
+// Calls completion handler with a new address instance, leaves this instance unaltered
 - (void)verifyOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler
 {
     EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
@@ -139,8 +143,10 @@
                                 onCompletion:^(NSData *data, NSHTTPURLResponse *response, NSError *error)
      {
          if (error) {
-             completionHandler(nil, [NSString stringWithFormat:@"Error: %@", error]);
+             NSString *errorMessage = [NSString stringWithFormat:@"Error: %@", error];
+             completionHandler(nil, errorMessage);
          } else {
+             // NSLog(@"%d response received", response.statusCode);
              if (response.statusCode == 200 ||
                  response.statusCode == 201 ||
                  response.statusCode == 202) {
@@ -148,16 +154,22 @@
                                                                             options:0
                                                                               error:nil];
                  NSDictionary *addressDict = dictionary[ADDRESS];
-                 [self updateFromDictionary:addressDict];
+                 EPPAddress *address = [[EPPAddress alloc] init];
+                 [address updateFromDictionary:addressDict];
                  
                  if (dictionary[MESSAGE] == [NSNull null]) {
-                     completionHandler(self, nil);
+                     completionHandler(address, nil);
                  } else {
-                     completionHandler(self, dictionary[MESSAGE]);
+                     completionHandler(address, dictionary[MESSAGE]);
                  }
+             } else if (response.statusCode == 400) {
+                 NSString *errorMessage = @"Check that the address is valid.";
+                 completionHandler(nil, errorMessage);
+                 NSLog(@"%@", errorMessage);
              } else {
-                 completionHandler(nil, @"Failed to verify address. Is your API key valid?");
-                 NSLog(@"Error: %@", error);
+                 NSString *errorMessage = @"Check the EasyPost API key.";
+                 completionHandler(nil, errorMessage);
+                 NSLog(@"%@", errorMessage);
              }
          }
      }];
