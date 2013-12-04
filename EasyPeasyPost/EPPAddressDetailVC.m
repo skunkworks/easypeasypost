@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *stateField;
 @property (weak, nonatomic) IBOutlet UITextField *zipField;
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
+@property (weak, nonatomic) IBOutlet UILabel *idLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createdOnLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
 
 @property (nonatomic, strong) NSArray *fields;
 
@@ -40,18 +43,10 @@
 {
     [super viewDidLoad];
     
-    EPPAddress *address = self.address;
-    if (address) {
-        self.nameField.text = address.name;
-        self.companyField.text = address.company;
-        self.emailField.text = address.email;
-        self.phoneField.text = address.phone;
-        self.street1Field.text = address.street1;
-        self.street2Field.text = address.street2;
-        self.cityField.text = address.city;
-        self.stateField.text = address.state;
-        self.zipField.text = address.zip;
-        self.countryField.text = address.country;
+    if (self.address) {
+        [self updateFieldsWithAddress:self.address];
+    } else {
+        self.address = [[EPPAddress alloc] init];
     }
     
     self.fields = @[self.nameField, self.companyField, self.phoneField, self.emailField,
@@ -75,12 +70,29 @@
     return NO;
 }
 
-- (IBAction)save:(UIBarButtonItem *)sender
+- (void)updateFieldsWithAddress:(EPPAddress *)address
 {
-    // We use this VC for both new and existing addresses, which is why we do this check
-    if (!self.address) {
-        self.address = [[EPPAddress alloc] init];
-    }
+    self.idLabel.text = [NSString stringWithFormat:@"ID: %@", address.id];
+    self.nameField.text = address.name;
+    self.companyField.text = address.company;
+    self.emailField.text = address.email;
+    self.phoneField.text = address.phone;
+    self.street1Field.text = address.street1;
+    self.street2Field.text = address.street2;
+    self.cityField.text = address.city;
+    self.stateField.text = address.state;
+    self.zipField.text = address.zip;
+    self.countryField.text = address.country;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    self.createdOnLabel.text = [NSString stringWithFormat:@"Created on: %@", [formatter stringFromDate:address.createdAt]];
+    self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last updated: %@", [formatter stringFromDate:address.updatedAt]];
+}
+
+- (void)updateAddressWithFields:(EPPAddress *)address
+{
     self.address.name = self.nameField.text;
     self.address.company = self.companyField.text;
     self.address.email = self.emailField.text;
@@ -91,6 +103,11 @@
     self.address.state = self.stateField.text;
     self.address.zip = self.zipField.text;
     self.address.country = self.countryField.text;
+}
+
+- (IBAction)save:(id)sender
+{
+    [self updateAddressWithFields:self.address];
     
     [self.address saveOnCompletion:^(EPPAddress *address, NSString *errorMessage) {
         if (errorMessage) {
@@ -104,13 +121,37 @@
             // Save updated address (now has ID and datetimes)
             self.address = address;
             
-            // Perform segue
+            // Perform unwind segue
             [self performSegueWithIdentifier:@"Save new address" sender:self.address];
         }
     }];
 }
 
-- (IBAction)verify:(UIBarButtonItem *)sender {
+- (IBAction)verify:(id)sender
+{
+    [self updateAddressWithFields:self.address];
+    
+    [self.address verifyOnCompletion:^(EPPAddress *address, NSString *errorMessage) {
+        if (address) {
+            [self updateFieldsWithAddress:address];
+            if (errorMessage) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"More information needed"
+                                                                    message:errorMessage
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error verifying address"
+                                                                message:errorMessage
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

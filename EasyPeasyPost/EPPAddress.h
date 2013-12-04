@@ -39,5 +39,6 @@
 - (NSDictionary *)dictionary;
 
 - (void)saveOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler;
+- (void)verifyOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler;
 
 @end
