@@ -314,7 +314,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcw-Rk-PSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YWp-Ar-aed" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="901" y="-120"/>
+            <point key="canvasLocation" x="897" y="-120"/>
         </scene>
         <!--Navigation Controller - Addresses-->
         <scene sceneID="ceQ-vS-P2R">

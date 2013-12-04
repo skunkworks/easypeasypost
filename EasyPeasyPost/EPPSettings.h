@@ -10,8 +10,6 @@
 
 @interface EPPSettings : NSObject
 
-+ (EPPSettings *)sharedSettings;
-
 @property (nonatomic, strong) NSString *apiKey;
 
 @end

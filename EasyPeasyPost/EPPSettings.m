@@ -10,32 +10,22 @@
 
 @implementation EPPSettings
 
-+ (EPPSettings *)sharedSettings
-{
-    static EPPSettings *settings;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        settings = [[EPPSettings alloc] init];
-    });
-    
-    return settings;
-}
-
 #define API_KEY @"EasyPostAPIKey"
-- (id)init
+
+@synthesize apiKey = _apiKey;
+
+- (NSString *)apiKey
 {
-    if (self = [super init]) {
-        NSString *apiKey = [[NSUserDefaults standardUserDefaults] stringForKey:API_KEY];
-        _apiKey = apiKey;
+    if (!_apiKey) {
+        _apiKey = [[NSUserDefaults standardUserDefaults] stringForKey:API_KEY];
     }
-    return self;
+    return _apiKey;
 }
 
 - (void)setApiKey:(NSString *)apiKey
 {
     _apiKey = apiKey;
-    [[NSUserDefaults standardUserDefaults] setObject: apiKey forKey:API_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:apiKey forKey:API_KEY];
 }
 
 @end

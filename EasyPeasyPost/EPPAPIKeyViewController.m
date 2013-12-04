@@ -15,48 +15,40 @@
 @property (weak, nonatomic) IBOutlet UITextField *apiKeyField;
 @property (weak, nonatomic) IBOutlet UIButton *verifyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) EPPSettings *settings;
 
 @end
 
 @implementation EPPAPIKeyViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (EPPSettings *)settings {
+    if (!_settings) _settings = [[EPPSettings alloc] init];
+    return _settings;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
-    self.apiKeyField.text = [[EPPSettings sharedSettings] apiKey];
+    
+    self.apiKeyField.text = [self.settings apiKey];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [[EPPSettings sharedSettings] setApiKey:self.apiKeyField.text];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.settings setApiKey:self.apiKeyField.text];
 }
 
 - (IBAction)verify:(UIButton *)sender {
     NSString *apiKey = self.apiKeyField.text;
+    [self.settings setApiKey:self.apiKeyField.text];
+    
     [self deactivateUI];
     [self checkAPIKey:apiKey];
 }
 
 - (void)checkAPIKey:(NSString *)apiKey
 {
-//    EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
     [EPPAPIKeyCheck checkAPIKey:apiKey onCompletion:^(BOOL verified, NSString *errorMessage)
     {
         if (verified) {

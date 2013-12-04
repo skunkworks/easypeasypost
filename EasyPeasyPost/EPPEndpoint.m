@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) void(^onCompletion)(NSHTTPURLResponse *response, NSError *error);
+@property (nonatomic, strong) EPPSettings *settings;
 
 @end
 
@@ -27,8 +28,9 @@
 - (id)init
 {
     if (self = [super init]) {
-        self.endpointURL = [NSURL URLWithString:ENDPOINT_BASE_URL];
-        self.apiKey = [[EPPSettings sharedSettings] apiKey];
+        _endpointURL = [NSURL URLWithString:ENDPOINT_BASE_URL];
+        _settings = [[EPPSettings alloc] init];
+        _apiKey = [_settings apiKey];
     }
     return self;
 }
