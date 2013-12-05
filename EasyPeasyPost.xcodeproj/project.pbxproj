@@ -30,6 +30,9 @@
 		4A9DE4FB1845A156006D2124 /* EPPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4FA1845A156006D2124 /* EPPAddress.m */; };
 		4ABA6068184FF756009F1282 /* EPPJobApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA6067184FF756009F1282 /* EPPJobApplicationViewController.m */; };
 		4ABA606B18500003009F1282 /* EPPJobApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA606A18500003009F1282 /* EPPJobApplication.m */; };
+		4ABA607B185063A2009F1282 /* clipboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABA6078185063A2009F1282 /* clipboard@2x.png */; };
+		4ABA607D185063A2009F1282 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABA607A185063A2009F1282 /* gear@2x.png */; };
+		4ABA607F18506488009F1282 /* address-book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABA607E18506488009F1282 /* address-book@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		4ABA6067184FF756009F1282 /* EPPJobApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPJobApplicationViewController.m; sourceTree = "<group>"; };
 		4ABA606918500003009F1282 /* EPPJobApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPJobApplication.h; sourceTree = "<group>"; };
 		4ABA606A18500003009F1282 /* EPPJobApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPJobApplication.m; sourceTree = "<group>"; };
+		4ABA6078185063A2009F1282 /* clipboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipboard@2x.png"; sourceTree = "<group>"; };
+		4ABA607A185063A2009F1282 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		4ABA607E18506488009F1282 /* address-book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "address-book@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,9 @@
 		4A9DE49F184507DF006D2124 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ABA607E18506488009F1282 /* address-book@2x.png */,
+				4ABA6078185063A2009F1282 /* clipboard@2x.png */,
+				4ABA607A185063A2009F1282 /* gear@2x.png */,
 				4A9DE4A7184507DF006D2124 /* EPPAppDelegate.h */,
 				4A9DE4A8184507DF006D2124 /* EPPAppDelegate.m */,
 				4A9DE4A0184507DF006D2124 /* EasyPeasyPost-Info.plist */,
@@ -306,7 +315,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ABA607F18506488009F1282 /* address-book@2x.png in Resources */,
+				4ABA607D185063A2009F1282 /* gear@2x.png in Resources */,
 				4A9DE4B1184507DF006D2124 /* Images.xcassets in Resources */,
+				4ABA607B185063A2009F1282 /* clipboard@2x.png in Resources */,
 				4A9DE4A3184507DF006D2124 /* InfoPlist.strings in Resources */,
 				4A9DE4AC184507DF006D2124 /* Main.storyboard in Resources */,
 			);

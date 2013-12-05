@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-375" y="137"/>
         </scene>
-        <!--Job Application View Controller - EasyPost Job Application-->
+        <!--Job Application View Controller - Job Application-->
         <scene sceneID="Tue-hE-po9">
             <objects>
                 <viewController id="M4k-7c-B8r" customClass="EPPJobApplicationViewController" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                             <constraint firstAttribute="centerX" secondItem="bPs-Ti-DqM" secondAttribute="centerX" id="tlE-08-aBM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="EasyPost Job Application" id="MS5-Xs-drB"/>
+                    <tabBarItem key="tabBarItem" title="Job Application" image="clipboard.png" id="MS5-Xs-drB"/>
                     <connections>
                         <outlet property="buildTextView" destination="vm6-XC-Ip6" id="apU-ap-uOI"/>
                         <outlet property="jobTitleField" destination="d5B-u4-6jC" id="rO5-GX-cTE"/>
@@ -170,7 +170,7 @@
                             <constraint firstAttribute="centerX" secondItem="cr4-p1-cfu" secondAttribute="centerX" id="gZU-cQ-gFB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="API Key" id="Xi1-HB-k6o"/>
+                    <tabBarItem key="tabBarItem" title="API Key" image="gear.png" id="Xi1-HB-k6o"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Bbr-KD-X2D" id="VdD-1T-1Bz"/>
                         <outlet property="apiKeyField" destination="cr4-p1-cfu" id="Wdu-Bn-0dc"/>
@@ -404,7 +404,7 @@
         <scene sceneID="ceQ-vS-P2R">
             <objects>
                 <navigationController definesPresentationContext="YES" id="bG9-kO-wFf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Addresses" id="uJF-Wi-8yF"/>
+                    <tabBarItem key="tabBarItem" title="Addresses" image="address-book.png" id="uJF-Wi-8yF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0q2-gh-Drp">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -826,6 +826,11 @@
             <point key="canvasLocation" x="958" y="411"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="address-book.png" width="25" height="25"/>
+        <image name="clipboard.png" width="25" height="25"/>
+        <image name="gear.png" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
