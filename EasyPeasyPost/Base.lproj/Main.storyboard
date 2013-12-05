@@ -16,12 +16,102 @@
                     </tabBar>
                     <connections>
                         <segue destination="bG9-kO-wFf" kind="relationship" relationship="viewControllers" id="AmG-5r-e6i"/>
+                        <segue destination="M4k-7c-B8r" kind="relationship" relationship="viewControllers" id="dw4-tH-gqI"/>
                         <segue destination="gbz-6A-pLU" kind="relationship" relationship="viewControllers" id="FOG-qq-ixr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVG-8J-iE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-375" y="137"/>
+        </scene>
+        <!--Job Application View Controller - EasyPost Job Application-->
+        <scene sceneID="Tue-hE-po9">
+            <objects>
+                <viewController id="M4k-7c-B8r" customClass="EPPJobApplicationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="daF-dQ-vyY"/>
+                        <viewControllerLayoutGuide type="bottom" id="fGn-K2-uzD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Xh-0V-LSb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5B-u4-6jC">
+                                <rect key="frame" x="75" y="89" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="Erb-Rb-LXC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="747" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vm6-XC-Ip6">
+                                <rect key="frame" x="20" y="156" width="280" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="4zK-kN-YMJ"/>
+                                    <constraint firstAttribute="width" constant="280" id="rLJ-bO-YuW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABo-jM-1IH">
+                                <rect key="frame" x="127" y="60" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-Qf-zcI">
+                                <rect key="frame" x="140" y="127" width="40" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply to EasyPost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-95-hWJ">
+                                <rect key="frame" x="80" y="28" width="161" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-Ti-DqM">
+                                <rect key="frame" x="100" y="314" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Application!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendApplication:" destination="M4k-7c-B8r" eventType="touchUpInside" id="FTf-wc-cwD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ABo-jM-1IH" firstAttribute="top" secondItem="hBK-95-hWJ" secondAttribute="bottom" constant="8" symbolic="YES" id="B9B-Hu-3o4"/>
+                            <constraint firstItem="hBK-95-hWJ" firstAttribute="top" secondItem="daF-dQ-vyY" secondAttribute="bottom" constant="20" symbolic="YES" id="GGe-xC-nSJ"/>
+                            <constraint firstItem="vm6-XC-Ip6" firstAttribute="leading" secondItem="1Xh-0V-LSb" secondAttribute="leading" constant="20" id="LZt-wf-XV5"/>
+                            <constraint firstItem="d5B-u4-6jC" firstAttribute="top" secondItem="ABo-jM-1IH" secondAttribute="bottom" constant="8" id="SSY-62-0Ze"/>
+                            <constraint firstAttribute="centerX" secondItem="d5B-u4-6jC" secondAttribute="centerX" id="XGc-xE-rHl"/>
+                            <constraint firstAttribute="centerX" secondItem="ABo-jM-1IH" secondAttribute="centerX" id="coC-ax-8IJ"/>
+                            <constraint firstAttribute="centerX" secondItem="hBK-95-hWJ" secondAttribute="centerX" id="eeo-2i-2Vd"/>
+                            <constraint firstAttribute="centerX" secondItem="pzG-Qf-zcI" secondAttribute="centerX" id="g1L-7t-2gF"/>
+                            <constraint firstAttribute="trailing" secondItem="vm6-XC-Ip6" secondAttribute="trailing" constant="20" id="kpW-aB-f99"/>
+                            <constraint firstItem="vm6-XC-Ip6" firstAttribute="top" secondItem="pzG-Qf-zcI" secondAttribute="bottom" constant="8" id="qIW-4A-N7x"/>
+                            <constraint firstItem="bPs-Ti-DqM" firstAttribute="top" secondItem="vm6-XC-Ip6" secondAttribute="bottom" constant="8" id="sk2-QG-kha"/>
+                            <constraint firstItem="pzG-Qf-zcI" firstAttribute="top" secondItem="d5B-u4-6jC" secondAttribute="bottom" constant="8" id="tOX-87-pTx"/>
+                            <constraint firstAttribute="centerX" secondItem="bPs-Ti-DqM" secondAttribute="centerX" id="tlE-08-aBM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="EasyPost Job Application" id="MS5-Xs-drB"/>
+                    <connections>
+                        <outlet property="buildTextView" destination="vm6-XC-Ip6" id="apU-ap-uOI"/>
+                        <outlet property="jobTitleField" destination="d5B-u4-6jC" id="rO5-GX-cTE"/>
+                        <outlet property="sendButton" destination="bPs-Ti-DqM" id="VZ5-Vz-NRP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dif-yJ-w1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="527"/>
         </scene>
         <!--Key View Controller - API Key-->
         <scene sceneID="Fle-eu-ai0">
@@ -89,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lvn-6g-ohl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="724"/>
+            <point key="canvasLocation" x="121" y="1187"/>
         </scene>
         <!--Address DetailVC - New Address-->
         <scene sceneID="X23-bb-kvN">

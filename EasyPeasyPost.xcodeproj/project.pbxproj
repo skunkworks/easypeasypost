@@ -14,14 +14,12 @@
 		4A9DE4A5184507DF006D2124 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4A4184507DF006D2124 /* main.m */; };
 		4A9DE4A9184507DF006D2124 /* EPPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4A8184507DF006D2124 /* EPPAppDelegate.m */; };
 		4A9DE4AC184507DF006D2124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4AA184507DF006D2124 /* Main.storyboard */; };
-		4A9DE4AF184507DF006D2124 /* EPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4AE184507DF006D2124 /* EPPViewController.m */; };
 		4A9DE4B1184507DF006D2124 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4B0184507DF006D2124 /* Images.xcassets */; };
 		4A9DE4B8184507DF006D2124 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE4B7184507DF006D2124 /* XCTest.framework */; };
 		4A9DE4B9184507DF006D2124 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE498184507DF006D2124 /* Foundation.framework */; };
 		4A9DE4BA184507DF006D2124 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9DE49C184507DF006D2124 /* UIKit.framework */; };
 		4A9DE4C2184507DF006D2124 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4C0184507DF006D2124 /* InfoPlist.strings */; };
 		4A9DE4C4184507DF006D2124 /* EasyPeasyPostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */; };
-		4A9DE4CF184508E5006D2124 /* EPPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4CE184508E5006D2124 /* EPPTabBarController.m */; };
 		4A9DE4D218450AFC006D2124 /* EPPAPIKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */; };
 		4A9DE4D618450D69006D2124 /* EPPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D518450D69006D2124 /* EPPEndpoint.m */; };
 		4A9DE4DE18453A1F006D2124 /* EPPSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4DD18453A1F006D2124 /* EPPSettings.m */; };
@@ -30,6 +28,8 @@
 		4A9DE4F118456FB0006D2124 /* EPPAddressDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4F018456FB0006D2124 /* EPPAddressDetailVC.m */; };
 		4A9DE4F418458A90006D2124 /* EPPAddressesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4F318458A90006D2124 /* EPPAddressesTVC.m */; };
 		4A9DE4FB1845A156006D2124 /* EPPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4FA1845A156006D2124 /* EPPAddress.m */; };
+		4ABA6068184FF756009F1282 /* EPPJobApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA6067184FF756009F1282 /* EPPJobApplicationViewController.m */; };
+		4ABA606B18500003009F1282 /* EPPJobApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA606A18500003009F1282 /* EPPJobApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,16 +54,12 @@
 		4A9DE4A7184507DF006D2124 /* EPPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPAppDelegate.h; sourceTree = "<group>"; };
 		4A9DE4A8184507DF006D2124 /* EPPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPAppDelegate.m; sourceTree = "<group>"; };
 		4A9DE4AB184507DF006D2124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4A9DE4AD184507DF006D2124 /* EPPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPViewController.h; sourceTree = "<group>"; };
-		4A9DE4AE184507DF006D2124 /* EPPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPViewController.m; sourceTree = "<group>"; };
 		4A9DE4B0184507DF006D2124 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4A9DE4B6184507DF006D2124 /* EasyPeasyPostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyPeasyPostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9DE4B7184507DF006D2124 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4A9DE4BF184507DF006D2124 /* EasyPeasyPostTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyPeasyPostTests-Info.plist"; sourceTree = "<group>"; };
 		4A9DE4C1184507DF006D2124 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyPeasyPostTests.m; sourceTree = "<group>"; };
-		4A9DE4CD184508E5006D2124 /* EPPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPTabBarController.h; sourceTree = "<group>"; };
-		4A9DE4CE184508E5006D2124 /* EPPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPTabBarController.m; sourceTree = "<group>"; };
 		4A9DE4D018450AFC006D2124 /* EPPAPIKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAPIKeyViewController.h; sourceTree = "<group>"; };
 		4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAPIKeyViewController.m; sourceTree = "<group>"; };
 		4A9DE4D418450D69006D2124 /* EPPEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPEndpoint.h; sourceTree = "<group>"; };
@@ -80,6 +76,10 @@
 		4A9DE4F318458A90006D2124 /* EPPAddressesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAddressesTVC.m; sourceTree = "<group>"; };
 		4A9DE4F91845A156006D2124 /* EPPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAddress.h; sourceTree = "<group>"; };
 		4A9DE4FA1845A156006D2124 /* EPPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAddress.m; sourceTree = "<group>"; };
+		4ABA6066184FF756009F1282 /* EPPJobApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPJobApplicationViewController.h; sourceTree = "<group>"; };
+		4ABA6067184FF756009F1282 /* EPPJobApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPJobApplicationViewController.m; sourceTree = "<group>"; };
+		4ABA606918500003009F1282 /* EPPJobApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPJobApplication.h; sourceTree = "<group>"; };
+		4ABA606A18500003009F1282 /* EPPJobApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPJobApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,16 +184,14 @@
 		4A9DE4D318450B0C006D2124 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4A9DE4CD184508E5006D2124 /* EPPTabBarController.h */,
-				4A9DE4CE184508E5006D2124 /* EPPTabBarController.m */,
 				4A9DE4D018450AFC006D2124 /* EPPAPIKeyViewController.h */,
 				4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */,
-				4A9DE4AD184507DF006D2124 /* EPPViewController.h */,
-				4A9DE4AE184507DF006D2124 /* EPPViewController.m */,
 				4A9DE4F218458A90006D2124 /* EPPAddressesTVC.h */,
 				4A9DE4F318458A90006D2124 /* EPPAddressesTVC.m */,
 				4A9DE4EF18456FB0006D2124 /* EPPAddressDetailVC.h */,
 				4A9DE4F018456FB0006D2124 /* EPPAddressDetailVC.m */,
+				4ABA6066184FF756009F1282 /* EPPJobApplicationViewController.h */,
+				4ABA6067184FF756009F1282 /* EPPJobApplicationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -209,6 +207,8 @@
 				4A9DE4E318454731006D2124 /* EPPAPIKeyCheck.m */,
 				4A9DE4F91845A156006D2124 /* EPPAddress.h */,
 				4A9DE4FA1845A156006D2124 /* EPPAddress.m */,
+				4ABA606918500003009F1282 /* EPPJobApplication.h */,
+				4ABA606A18500003009F1282 /* EPPJobApplication.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -327,12 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A9DE4AF184507DF006D2124 /* EPPViewController.m in Sources */,
 				4A9DE4EE18455158006D2124 /* NSDictionary+URLString.m in Sources */,
 				4A9DE4E418454731006D2124 /* EPPAPIKeyCheck.m in Sources */,
-				4A9DE4CF184508E5006D2124 /* EPPTabBarController.m in Sources */,
+				4ABA606B18500003009F1282 /* EPPJobApplication.m in Sources */,
 				4A9DE4D218450AFC006D2124 /* EPPAPIKeyViewController.m in Sources */,
 				4A9DE4DE18453A1F006D2124 /* EPPSettings.m in Sources */,
+				4ABA6068184FF756009F1282 /* EPPJobApplicationViewController.m in Sources */,
 				4A9DE4FB1845A156006D2124 /* EPPAddress.m in Sources */,
 				4A9DE4F118456FB0006D2124 /* EPPAddressDetailVC.m in Sources */,
 				4A9DE4F418458A90006D2124 /* EPPAddressesTVC.m in Sources */,
