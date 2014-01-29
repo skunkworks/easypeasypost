@@ -8,7 +8,7 @@
 
 #import "EPPAddress.h"
 #import "NSDictionary+URLString.h"
-#import "EPPEndpoint.h"
+#import "EPPCommunicator.h"
 
 @interface EPPAddress ()
 @property (nonatomic, readwrite) NSString *id;
@@ -105,7 +105,7 @@
 - (void)saveOnCompletion:(void(^)(NSString *errorMessage))completionHandler
 {
     NSString *addressParameterString = [[self dictionary] urlEncodedString];
-    EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
+    EPPCommunicator *endpoint = [[EPPCommunicator alloc] init];
     
     [endpoint performPostRequestOnResourceURL:@"/addresses"
                                withParameters:addressParameterString
@@ -136,7 +136,7 @@
 // Calls completion handler with a new address instance, leaves this instance unaltered
 - (void)verifyOnCompletion:(void(^)(EPPAddress *address, NSString *errorMessage))completionHandler
 {
-    EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
+    EPPCommunicator *endpoint = [[EPPCommunicator alloc] init];
     NSString *verifyURL = [NSString stringWithFormat:@"addresses/%@/verify", self.id];
     
     [endpoint performGetRequestOnResourceURL:verifyURL

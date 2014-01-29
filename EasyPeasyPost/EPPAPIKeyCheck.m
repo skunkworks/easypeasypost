@@ -7,13 +7,13 @@
 //
 
 #import "EPPAPIKeyCheck.h"
-#import "EPPEndpoint.h"
+#import "EPPCommunicator.h"
 
 @implementation EPPAPIKeyCheck
 
 + (void)checkAPIKey:(NSString *)apiKey onCompletion:(void(^)(BOOL verified, NSString *errorMessage))completionHandler
 {
-    EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
+    EPPCommunicator *endpoint = [[EPPCommunicator alloc] init];
     [endpoint performGetRequestOnResourceURL:@"/shipments"
                                 onCompletion:^(NSData *data, NSHTTPURLResponse *response, NSError *error)
      {

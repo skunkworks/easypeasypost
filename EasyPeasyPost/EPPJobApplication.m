@@ -7,7 +7,7 @@
 //
 
 #import "EPPJobApplication.h"
-#import "EPPEndpoint.h"
+#import "EPPCommunicator.h"
 #import "NSDictionary+URLString.h"
 
 
@@ -30,7 +30,7 @@
     
     // NSLog(@"URL parameter string: %@", parameters);
     
-    EPPEndpoint *endpoint = [[EPPEndpoint alloc] init];
+    EPPCommunicator *endpoint = [[EPPCommunicator alloc] init];
     [endpoint performPostRequestOnResourceURL:@"/apply"
                                withParameters:parameters
                                  onCompletion:^(NSData *data, NSHTTPURLResponse *response, NSError *error)

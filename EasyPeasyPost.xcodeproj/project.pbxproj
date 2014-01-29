@@ -21,7 +21,7 @@
 		4A9DE4C2184507DF006D2124 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE4C0184507DF006D2124 /* InfoPlist.strings */; };
 		4A9DE4C4184507DF006D2124 /* EasyPeasyPostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */; };
 		4A9DE4D218450AFC006D2124 /* EPPAPIKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */; };
-		4A9DE4D618450D69006D2124 /* EPPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D518450D69006D2124 /* EPPEndpoint.m */; };
+		4A9DE4D618450D69006D2124 /* EPPCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4D518450D69006D2124 /* EPPCommunicator.m */; };
 		4A9DE4DE18453A1F006D2124 /* EPPSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4DD18453A1F006D2124 /* EPPSettings.m */; };
 		4A9DE4E418454731006D2124 /* EPPAPIKeyCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4E318454731006D2124 /* EPPAPIKeyCheck.m */; };
 		4A9DE4EE18455158006D2124 /* NSDictionary+URLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE4ED18455158006D2124 /* NSDictionary+URLString.m */; };
@@ -65,8 +65,8 @@
 		4A9DE4C3184507DF006D2124 /* EasyPeasyPostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyPeasyPostTests.m; sourceTree = "<group>"; };
 		4A9DE4D018450AFC006D2124 /* EPPAPIKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAPIKeyViewController.h; sourceTree = "<group>"; };
 		4A9DE4D118450AFC006D2124 /* EPPAPIKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPAPIKeyViewController.m; sourceTree = "<group>"; };
-		4A9DE4D418450D69006D2124 /* EPPEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPEndpoint.h; sourceTree = "<group>"; };
-		4A9DE4D518450D69006D2124 /* EPPEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPEndpoint.m; sourceTree = "<group>"; };
+		4A9DE4D418450D69006D2124 /* EPPCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPCommunicator.h; sourceTree = "<group>"; };
+		4A9DE4D518450D69006D2124 /* EPPCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPCommunicator.m; sourceTree = "<group>"; };
 		4A9DE4DC18453A1F006D2124 /* EPPSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPSettings.h; sourceTree = "<group>"; };
 		4A9DE4DD18453A1F006D2124 /* EPPSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPSettings.m; sourceTree = "<group>"; };
 		4A9DE4E218454731006D2124 /* EPPAPIKeyCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPAPIKeyCheck.h; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 		4A9DE4D718450D6E006D2124 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4A9DE4D418450D69006D2124 /* EPPEndpoint.h */,
-				4A9DE4D518450D69006D2124 /* EPPEndpoint.m */,
+				4A9DE4D418450D69006D2124 /* EPPCommunicator.h */,
+				4A9DE4D518450D69006D2124 /* EPPCommunicator.m */,
 				4A9DE4DC18453A1F006D2124 /* EPPSettings.h */,
 				4A9DE4DD18453A1F006D2124 /* EPPSettings.m */,
 				4A9DE4E218454731006D2124 /* EPPAPIKeyCheck.h */,
@@ -349,7 +349,7 @@
 				4A9DE4F118456FB0006D2124 /* EPPAddressDetailVC.m in Sources */,
 				4A9DE4F418458A90006D2124 /* EPPAddressesTVC.m in Sources */,
 				4A9DE4A9184507DF006D2124 /* EPPAppDelegate.m in Sources */,
-				4A9DE4D618450D69006D2124 /* EPPEndpoint.m in Sources */,
+				4A9DE4D618450D69006D2124 /* EPPCommunicator.m in Sources */,
 				4A9DE4A5184507DF006D2124 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
